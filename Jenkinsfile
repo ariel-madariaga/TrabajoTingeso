@@ -1,21 +1,34 @@
-pipeline {
-    agent any
-
+ pipeline {
+    agent none
     stages {
-        stage('Build') {
+        stage("build & SonarQube analysis") {
+            agent any
             steps {
-                echo 'Building..'
+                withSonarQubeEnv('My SonarQube Server') {
+                    sh 'mvn clean package sonar:sonar'
+                }
             }
         }
-        stage('Test') {
+        stage("Quality Gate") {
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                timeout(time: 1, unit: 'HOURS') {
+                    waitForQualityGate abortPipeline: true
+                }
             }
         }
     }
+    agent any
+    stages {
+        stage('Build and Test') {
+            steps {
+                sh 'build here...'
+                sh 'run tests here if you like ...'
+            }
+        }
+    }
+    post {
+        always {
+            junit '**/reports/junit/*.xml'
+        }
+    } 
 }
