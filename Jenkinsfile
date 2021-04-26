@@ -17,7 +17,7 @@ pipeline {
         }*/
 
         stage("SonarQube analysis") {
-            agent any
+            //agent any
             steps {
                 dir("/var/lib/jenkins/workspace/prueba1")
                 withSonarQubeEnv('sonarqube-grupo3') {
