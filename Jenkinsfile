@@ -34,7 +34,7 @@ pipeline {
             }
         }
      
-        stage("Quality Gate") {
+        /*stage("Quality Gate") {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
                     waitForQualityGate abortPipeline: true
@@ -47,7 +47,7 @@ pipeline {
                 sh 'build here...'
                 sh 'run tests here if you like ...'
             }
-        }
+        }*/
 
     }
     
