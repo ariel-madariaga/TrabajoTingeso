@@ -16,6 +16,12 @@ pipeline {
             }
         }*/
 
+        stage('Inicio'){
+            steps{
+                echo "prueba"
+            } 
+        }
+
         stage("SonarQube analysis") {
             //agent any
             steps {
