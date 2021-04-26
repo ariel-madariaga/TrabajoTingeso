@@ -16,6 +16,18 @@
                 }
             }
         }
+     
+        stage('Analyze') {
+            steps {
+                script {
+                    getMavenCommand()
+                        .withOptions(['-e', '-nsu'])
+                        .withProfiles(['sonarcloud-analysis'])
+                        .run('validate')
+                }
+            }
+        }
+     
     }
     agent any
     stages {
