@@ -1,0 +1,10 @@
+Crear proyecto :
+npx create-react-app front-end
+
+Servidor de desarrollo : 
+npm start
+
+Run app: 
+npm run build
+
+
