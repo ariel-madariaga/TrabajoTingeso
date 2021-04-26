@@ -29,7 +29,7 @@ pipeline {
                     withSonarQubeEnv('sonarqube-grupo3') {
                         //sh 'chmod +x ./gradlew'
                         //sh './gradlew sonarqube'
-                        //sh 'mvn clean package sonar:sonar'
+                        sh 'mvn clean package sonar:sonar'
                     }
                 }
             }
