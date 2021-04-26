@@ -3,10 +3,26 @@ pipeline {
     agent any
     stages {
 
+        stage('Build') {
+            steps {
+                sh './gradlew build'
+                sh 'mvn --version'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh './gradlew check'
+            }
+        }
+
         stage("SonarQube analysis") {
             agent any
             steps {
+                dir("/var/lib/jenkins/workspace/prueba1")
                 withSonarQubeEnv('sonarqube-grupo3') {
+                    sh 'chmod +x ./gradlew'
+                    sh './gradlew sonarqube'
                     sh 'mvn clean package sonar:sonar'
                 }
             }
