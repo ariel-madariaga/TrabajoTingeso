@@ -27,10 +27,13 @@ pipeline {
         }
         stage('SonarQube analysis') {
             def scannerHome = tool 'SonarScanner 4.0';
+            dir("/var/lib/jenkins/workspace/prueba1"){
                 withSonarQubeEnv('My SonarQube Server') { // If you have configured more than one global server connection, you can specify its name
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
+            }
         }
+
      
         /*stage("Quality Gate") {
             steps {
