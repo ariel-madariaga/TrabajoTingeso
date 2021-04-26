@@ -2,20 +2,7 @@
 pipeline {
     agent any
     stages {
-     
-        stage('Build') {
-            steps {
-                sh './gradlew build'
-                sh 'mvn --version'
-            }
-        }
-     
-        stage('Test') {
-            steps {
-                sh './gradlew check'
-            }
-        }
-     
+
         stage("SonarQube analysis") {
             agent any
             steps {
