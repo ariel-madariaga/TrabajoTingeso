@@ -1,5 +1,3 @@
-@Library('jenkins-pipeline-shared-libraries')_
-import org.kie.jenkins.MavenCommand
 
 pipeline {
     agent none
