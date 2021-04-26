@@ -3,7 +3,7 @@ pipeline {
     agent any
     stages {
 
-        stage('Build') {
+        /*stage('Build') {
             steps {
                 sh './gradlew build'
                 sh 'mvn --version'
@@ -14,7 +14,7 @@ pipeline {
             steps {
                 sh './gradlew check'
             }
-        }
+        }*/
 
         stage("SonarQube analysis") {
             agent any
