@@ -1,7 +1,21 @@
  pipeline {
     agent none
     stages {
-        stage("build & SonarQube analysis") {
+     
+        stage('Build') {
+            steps {
+                sh './gradlew build'
+                sh 'mvn --version'
+            }
+        }
+     
+        stage('Test') {
+            steps {
+                sh './gradlew check'
+            }
+        }
+     
+        stage("SonarQube analysis") {
             agent any
             steps {
                 withSonarQubeEnv('sonarqube-grupo3') {
@@ -9,6 +23,7 @@
                 }
             }
         }
+     
         stage("Quality Gate") {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
@@ -17,16 +32,6 @@
             }
         }
      
-        stage('Analyze') {
-            steps {
-                script {
-                    getMavenCommand()
-                        .withOptions(['-e', '-nsu'])
-                        .withProfiles(['sonarcloud-analysis'])
-                        .run('validate')
-                }
-            }
-        }
         stage('Build and Test') {
             steps {
                 sh 'build here...'
@@ -34,5 +39,11 @@
             }
         }
 
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            junit 'build/reports/**/*.xml'
+        }
     }
 }
