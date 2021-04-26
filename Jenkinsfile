@@ -22,16 +22,15 @@ pipeline {
             } 
         }
 
-        stage("SonarQube analysis") {
-            //agent any
-            steps {
-                dir("/var/lib/jenkins/workspace/prueba1"){
-                    withSonarQubeEnv('sonarqube-grupo3') {
-                        //sh 'chmod +x ./gradlew'
-                        sh './gradlew sonarqube'
-                        //sh 'mvn clean package sonar:sonar'
+        node {
+            stage('SCM') {
+                git 'https://github.com/foo/bar.git'
+            }
+            stage('SonarQube analysis') {
+                def scannerHome = tool 'SonarScanner 4.0';
+                    withSonarQubeEnv('My SonarQube Server') { // If you have configured more than one global server connection, you can specify its name
+                        sh "${scannerHome}/bin/sonar-scanner"
                     }
-                }
             }
         }
      
