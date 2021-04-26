@@ -1,4 +1,6 @@
- pipeline {
+import org.kie.jenkins.MavenCommand
+
+pipeline {
     agent none
     stages {
      
