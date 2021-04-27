@@ -1,0 +1,39 @@
+    .naranjo{
+        background-color: #E07A5F;
+        color:  white;
+    }
+    .formato{
+        text-align: center;
+    }
+    .resultado{
+        background-color: #3D405B;
+        color : #81B29A
+    }
+    .titulo{
+        color: #3D405B;
+    }
+    .blanco{
+        background-color: #F4F1DE;
+    }
+    .boton{
+        background-color: #E07A5F ;
+        color : #F2CC8F;
+    }
+    .fondo{
+        background-color: #81B29A;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ventana{
+        background-color: #F2CC8F;
+        width: 1200px;
+        height: 600px;
+        left: 482px;
+        top: 26px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+    }
