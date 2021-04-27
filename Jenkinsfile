@@ -28,7 +28,7 @@ pipeline {
                 dir("/var/lib/jenkins/workspace/prueba1"){
                     withSonarQubeEnv('sonarqube') {
                         sh 'chmod +x ./backend/gradlew'
-                        sh './backend/gradlew sonarqube'
+                        sh './backend/gradlew sonarqube-grupo3'
                         //sh 'mvn clean package sonar:sonar'
                     }
                 }
