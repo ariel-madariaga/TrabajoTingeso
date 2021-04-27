@@ -37,8 +37,19 @@ pipeline {
 
         stage("JUnit analysis"){
             steps{
-                dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-results/test"){
-                    junit 'test.xlm'
+                dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-reports"){
+                    
+                    junit skipPublishingChecks: true, testResults: 'test-results.xml'
+                    
+                    junit 'test-results.xml'
+                    
+                    junit 'more-test-results.xml'
+
+                
+                    withChecks('Integration Tests') {
+                        junit 'yet-more-test-results.xml'
+                    }
+                
                 }
             }
         }
