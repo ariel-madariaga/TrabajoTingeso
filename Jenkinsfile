@@ -26,7 +26,7 @@ pipeline {
             //agent any
             steps {
                 dir("/var/lib/jenkins/workspace/prueba1/backend"){
-                    withSonarQubeEnv('sonarqube-grupo3') {
+                    withSonarQubeEnv('sonarqube') {
                         sh 'chmod +x ./gradlew'
                         sh './gradlew sonarqube --stacktrace'
                         //sh 'mvn clean package sonar:sonar'
