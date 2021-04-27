@@ -6,32 +6,37 @@ class Suma extends Component {
   constructor(){
     super();
     this.state = {
-      numero1: "",
-      numero2: "",
-      resultado: ""
+      baseUrl : "http://localhost:1818",
+      num1: "",
+      num2: "",
+      result: ""
     };
 
   }
 
-  setNumero1 = e =>{
+  setNum1 = e =>{
     const {value}=e.target
     this.setState({
-      numero1 : value
+      num1 : value
     })
   }
-  setNumero2 = e=>{
+  setNum2 = e=>{
     const {value}=e.target
     this.setState({
-      numero2:value
-    })
+      num2:value
+    });
   }
   handleSubmit = e => {
     e.preventDefault();
-    axios
-      .post("http://localhost:1818/suma", {operando1: this.state.numero1, operando2: this.state.numero2})
-      .then((response)=>{
-        this.setState({resultado: response.data.resultado})
+      axios.post(this.state.baseUrl + "/sum", {
+          operandA : this.state.num1 ,        
+          operandB : this.state.num2
       })
+      .then( response => {
+        this.setState({
+            result: response.data.result
+        });
+        console.log("RESPONDIDO")})
       .catch(err=>console.log(err));
   };
   render(){
@@ -42,26 +47,29 @@ class Suma extends Component {
       </h3>
       <p></p>
       <div class="container ">
-      <div class="row ">
-          <Input text= "Primer número" id = "input1"  defaultValue={this.state.numero1} onChange={this.setNumero1}></Input>
-        </div>
-        <div class="row ">
-          <Input text= "Segundo número"  id = "input2" defaultValue={this.state.numero2} onChange={this.setNumero2}></Input>
-        </div>
-        <div class="row ">
-          <div class="boton1">
-            <h4>
-              <Button text = "+" />
-            </h4>
+        <form method="post"onSubmit={ this.handleSubmit }>
+          <div class="row ">
+            <Input text= "Primer número" id = "input1" onInputChange={this.setNum1}></Input>
           </div>
-          <div class="boton2">
-            <Button text = "-" disabled = "true"/>
+          <div class="row ">
+            <Input text= "Segundo número"  id = "input2" onInputChange={this.setNum2}></Input>
           </div>
-        </div>
+          <div class="row ">
+            <div class="boton1">
+              <h4>
+                <Button text = "+" />
+              </h4>
+            </div>
+            <div class="boton2">
+              <Button text = "-" disabled = "true"/>
+            </div>
+          </div>
+        </form>
+
         
       <div class="row ">
       <div class="col-sm">
-      <input className = "resultado" class="form-control resultado"  id="resultado" type="text" placeholder="Resultado" defaultValue={this.state.resultado} disabled>
+      <input className = "resultado" class="form-control resultado"  id="resultado" type="text" placeholder="Resultado" defaultValue={this.state.result} disabled>
       </input>
       </div>
         </div>
@@ -81,8 +89,9 @@ class Suma extends Component {
       }
       else{
         return  <div id='boton'>
-        <button type="button" class="btn boton btn-lg" >{this.props.text} </button>
+        <button type="submit" class="btn boton btn-lg" >{this.props.text} </button>
         </div>;
+
       }
     }
   }
@@ -94,10 +103,13 @@ class Suma extends Component {
     render() {
       return(
         <div class="col-sm">
-        <input class="form-control" type="number"  id={this.props.id} placeholder={this.props.text} aria-label="default input example">
+        <input class="form-control" type="number"  id={this.props.id} placeholder={this.props.text} aria-label="default input example" onChange={this.props.onInputChange}>
           </input>
         </div>
       )
+
+      
+
     }
   }
   /*
