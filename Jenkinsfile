@@ -34,6 +34,14 @@ pipeline {
                 }
             }
         }
+
+        stage("JUnit analysis"){
+            steps{
+                dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-results/test"){
+                    junit 'test.xlm'
+                }
+            }
+        }
      
         /*stage("Quality Gate") {
             steps {
