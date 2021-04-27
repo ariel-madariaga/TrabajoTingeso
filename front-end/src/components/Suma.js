@@ -6,7 +6,7 @@ class Suma extends Component {
   constructor(){
     super();
     this.state = {
-      baseUrl : "http://localhost:1818",
+      baseUrl : "http://localhost:8080/calculadora",
       num1: "",
       num2: "",
       result: ""
@@ -26,9 +26,22 @@ class Suma extends Component {
       num2:value
     });
   }
-  handleSubmit = e => {
+  sumar = e => {
     e.preventDefault();
-      axios.post(this.state.baseUrl + "/sum", {
+      axios.post(this.state.baseUrl + "/suma", {
+          operandA : this.state.num1 ,        
+          operandB : this.state.num2
+      })
+      .then( response => {
+        this.setState({
+            result: response.data.result
+        });
+        console.log("RESPONDIDO")})
+      .catch(err=>console.log(err));
+  };
+  restar = e => {
+    e.preventDefault();
+      axios.post(this.state.baseUrl + "/resta", {
           operandA : this.state.num1 ,        
           operandB : this.state.num2
       })
@@ -47,7 +60,7 @@ class Suma extends Component {
       </h3>
       <p></p>
       <div class="container ">
-        <form method="post"onSubmit={ this.handleSubmit }>
+
           <div class="row ">
             <Input text= "Primer número" id = "input1" onInputChange={this.setNum1}></Input>
           </div>
@@ -55,16 +68,23 @@ class Suma extends Component {
             <Input text= "Segundo número"  id = "input2" onInputChange={this.setNum2}></Input>
           </div>
           <div class="row ">
-            <div class="boton1">
-              <h4>
+
+            <form method="post"onSubmit={ this.sumar}>
+
+              <div class="boton1">
+                <h4>
                 <Button text = "+" />
-              </h4>
-            </div>
-            <div class="boton2">
-              <Button text = "-" disabled = "true"/>
-            </div>
+                </h4>
+              </div>
+            </form>
+
+            <form method="post"onSubmit={ this.restar}>
+              <div class="boton2">
+                <Button text = "-"/>
+              </div>
+            </form>
           </div>
-        </form>
+
 
         
       <div class="row ">

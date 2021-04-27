@@ -2,7 +2,7 @@ package com.example.backend.Models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Sum {
+public class Calculadora {
     @SerializedName("operandA")
     private int operandA;
     @SerializedName("operandB")
@@ -34,8 +34,12 @@ public class Sum {
         this.result = result;
     }
 
-    public int calculateSum(int operandA, int operandB) {
+    public int Sumar(int operandA, int operandB) {
         int result = operandA + operandB;
+        return result;
+    }
+    public int Restar(int operandA, int operandB) {
+        int result = operandA - operandB;
         return result;
     }
 }
