@@ -32,7 +32,3 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
-
-release {
-    buildTasks = ['sonarqube']
-}
