@@ -45,7 +45,7 @@ pipeline {
                     
                     junit 'more-test-results.xml'
                     
-                    junit allowEmptyResults: true, testResults: '*/test-results/.xml'
+                    junit allowEmptyResults: true, testResults: "${WORKSPACE}/test-results/*.xml"
                 
                     withChecks('Integration Tests') {
                         junit 'yet-more-test-results.xml'
