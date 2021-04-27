@@ -8,7 +8,9 @@ function App() {
   return (
     <div className="formato">
       <header className="fondo">
+        <div class="fondo-imagen" style={{ backgroundImage: 'url(https://i.ibb.co/2K43mXT/3955269-2x.png)' }}>
         <Suma/>
+        </div>
       </header>
     </div>
   );
