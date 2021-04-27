@@ -25,12 +25,20 @@ pipeline {
         stage("SonarQube analysis") {
             //agent any
             steps {
-                dir("/var/lib/jenkins/workspace/prueba1"){
+                dir("/var/lib/jenkins/workspace/prueba1/backend"){
                     withSonarQubeEnv('sonarqube') {
-                        sh 'chmod +x ./backend/gradlew'
-                        sh './backend/gradlew sonarqube --stacktrace'
+                        sh 'chmod +x ./gradlew'
+                        sh './gradlew sonarqube --stacktrace'
                         //sh 'mvn clean package sonar:sonar'
                     }
+                }
+            }
+        }
+
+        stage("JUnit analysis"){
+            steps{
+                dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-results/test"){
+                    junit 'test.xlm'
                 }
             }
         }
