@@ -36,7 +36,7 @@ pipeline {
              steps{
                 dir("/var/lib/jenkins/workspace/prueba1/backend"){			
                    sh 'gradle build'
-		   sh 'java -jar .\build\libs\backend-0.0.1-SNAPSHOT.jar'
+		   sh 'java -jar ./build/libs/backend-0.0.1-SNAPSHOT.jar'
         	}
         	}
         }
