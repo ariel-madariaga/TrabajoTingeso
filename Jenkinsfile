@@ -36,7 +36,8 @@ pipeline {
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/front-end"){
 		    //sh  'npm start'
-                    sh 'npm run build'
+                    sh 'sudo npm install'
+                    sh 'sudo npm run build'
                 }
             }
         }
