@@ -32,14 +32,6 @@ pipeline {
                 }
             }
         }
-	stage('Levantar backend'){
-             steps{
-                dir("/var/lib/jenkins/workspace/prueba1/backend"){			
-                   sh './gradlew build'
-		   sh 'java -jar ./build/libs/backend-0.0.1-SNAPSHOT.jar'
-        	}
-        	}
-        }
 	stage('Levantar front end'){
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/front-end"){
@@ -47,6 +39,14 @@ pipeline {
                     sh 'npm run build'
                 }
             }
+        }
+	stage('Levantar backend'){
+             steps{
+                dir("/var/lib/jenkins/workspace/prueba1/backend"){			
+                   sh './gradlew build'
+		   sh 'java -jar ./build/libs/backend-0.0.1-SNAPSHOT.jar'
+        	}
+        	}
         }
         stage('Fin'){
                 steps{
