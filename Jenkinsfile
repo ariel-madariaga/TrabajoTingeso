@@ -32,6 +32,7 @@ pipeline {
                 }
             }
         }
+        /*
         stage('Levantar front end'){
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/frontend"){
@@ -39,6 +40,7 @@ pipeline {
                 }
             }
         }
+        */
 	stage('Levantar backend'){
              steps{
                 dir("/var/lib/jenkins/workspace/prueba1/backend"){
