@@ -38,9 +38,9 @@ pipeline {
 		    //sh  'npm start'
                     //sh 'sudo npm install'
                     //sh 'sudo npm run build'
-                    sh "rm -rf node_modules || true" // removing node_modules if existing.
-                    sh 'npm run build'
-                    //sh 'nohup npm start &'
+                    //sh "rm -rf node_modules || true" // removing node_modules if existing.
+                    //sh 'npm run build'
+                    sh 'nohup npm start &'
                 }
             }
         }
