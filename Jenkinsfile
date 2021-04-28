@@ -43,7 +43,8 @@ pipeline {
 	stage('Levantar front end'){
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/front-end"){
-                    sh 'npm run build'
+			sh  'npm start'
+                    //sh 'npm run build'
                 }
             }
         }
