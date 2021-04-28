@@ -32,15 +32,13 @@ pipeline {
                 }
             }
         }
-        /*
-        stage('Levantar front end'){
+	stage('Levantar front end'){
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/frontend"){
-                    sh 'npm run start'
+                    sh 'npm run serve'
                 }
             }
         }
-        */
 	stage('Levantar backend'){
              steps{
                 dir("/var/lib/jenkins/workspace/prueba1/backend"){
@@ -48,7 +46,6 @@ pipeline {
         	}
         	}
         }
-
         stage('Fin'){
                 steps{
                     echo "Terminado"
