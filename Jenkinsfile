@@ -32,19 +32,16 @@ pipeline {
                 }
             }
         }
-        /*
         stage('Levantar'){
              steps{
                 dir("/var/lib/jenkins/workspace/prueba1/backend"){
                    sh './gradlew bootRun'
                 }
                 dir("/var/lib/jenkins/workspace/prueba1/frontend"){
-                    sh 'npm install'
                     sh 'npm run start'
                 }
             }
         }
-        */
         stage('Fin'){
                 steps{
                     echo "Terminado"
