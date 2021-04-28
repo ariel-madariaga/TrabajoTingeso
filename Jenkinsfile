@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Inicio'){
             steps{
-                echo "prueba"
+                echo "Iniciando"
             } 
         }
 
@@ -15,7 +15,6 @@ pipeline {
                     withSonarQubeEnv('sonarqube') {
                         sh 'chmod +x ./gradlew'
                         sh './gradlew sonarqube'
-                        //sh 'mvn clean package sonar:sonar'
                     }
                 }
             }
@@ -32,6 +31,11 @@ pipeline {
                     junit '*.xml'
                 }
             }
+        }
+	stage('Fin'){
+            steps{
+                echo "Terminado"
+            } 
         }
      
 
