@@ -28,29 +28,35 @@ pipeline {
                 dir("/var/lib/jenkins/workspace/prueba1/backend"){
                     withSonarQubeEnv('sonarqube') {
                         sh 'chmod +x ./gradlew'
-                        sh './gradlew sonarqube --stacktrace'
+                        sh './gradlew sonarqube'
                         //sh 'mvn clean package sonar:sonar'
                     }
                 }
             }
         }
 
-        stage("JUnit analysis"){
+        stage("JUnit"){
             steps{
-                dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-reports"){
-                    
+                dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-results/test"){
                     //junit skipPublishingChecks: true, testResults: 'test-results.xml'
                     
                     //junit 'test-results.xml'
                     
                     //junit 'more-test-results.xml'
                     
-                    junit allowEmptyResults: true, testResults: '*.xml'
+                    //junit allowEmptyResults: true, testResults: '*.xml'
                 
-                    withChecks('Integration Tests') {
-                        junit 'yet-more-test-results.xml'
-                    }
-                
+                    //withChecks('Integration Tests') {
+                    //    junit 'yet-more-test-results.xml'
+                    //}           
+                }
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    dir("/var/lib/jenkins/workspace/prueba1/backend") {
+                    sh './gradlew test'
+				    }
+                }
+                dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-results/test"){
+                    junit '*.xml'
                 }
             }
         }
