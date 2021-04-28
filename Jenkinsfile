@@ -32,16 +32,20 @@ pipeline {
                 }
             }
         }
-        stage('Levantar'){
-             steps{
-                dir("/var/lib/jenkins/workspace/prueba1/backend"){
-                   sh './gradlew bootRun'
-                }
+        stage('Levantar front end'){
+            steps{
                 dir("/var/lib/jenkins/workspace/prueba1/frontend"){
                     sh 'npm run start'
                 }
             }
         }
+	stage('Levantar backend'){
+             steps{
+                dir("/var/lib/jenkins/workspace/prueba1/backend"){
+                   sh './gradlew bootRun'
+        	}
+        }
+
         stage('Fin'){
                 steps{
                     echo "Terminado"
