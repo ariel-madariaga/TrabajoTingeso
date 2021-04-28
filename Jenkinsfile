@@ -44,6 +44,7 @@ pipeline {
                 dir("/var/lib/jenkins/workspace/prueba1/backend"){
                    sh './gradlew bootRun'
         	}
+        	}
         }
 
         stage('Fin'){
