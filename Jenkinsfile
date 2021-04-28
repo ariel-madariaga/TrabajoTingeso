@@ -34,7 +34,7 @@ pipeline {
         }
 	stage('Levantar front end'){
             steps{
-                dir("/var/lib/jenkins/workspace/prueba1/frontend"){
+                dir("/var/lib/jenkins/workspace/prueba1/front-end"){
                     sh 'npm run serve'
                 }
             }
@@ -42,7 +42,7 @@ pipeline {
 	stage('Levantar backend'){
              steps{
                 dir("/var/lib/jenkins/workspace/prueba1/backend"){
-                   sh './gradlew bootRun'
+                   sh 'gradle bootRun'
         	}
         	}
         }
