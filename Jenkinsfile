@@ -36,7 +36,7 @@ pipeline {
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/front-end"){
 		            sh  'npm start'
-                    sh 'npm run build'
+                    //sh 'npm run build'
                 }
             }
         }
