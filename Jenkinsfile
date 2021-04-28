@@ -35,12 +35,12 @@ pipeline {
 	stage('Levantar front end'){
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/front-end"){
-		    //sh  'npm start'
+		            sh  'npm start'
                     //sh 'sudo npm install'
                     //sh 'sudo npm run build'
                     //sh "rm -rf node_modules || true" // removing node_modules if existing.
                     //sh 'npm run build'
-                    sh 'sudo nohup npm start &'
+                    //sh 'nohup npm start &'
                 }
             }
         }
