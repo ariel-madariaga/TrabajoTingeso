@@ -23,8 +23,6 @@ pipeline {
 
         stage("JUnit"){
             steps{
-                dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-results/test"){        
-                }
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     dir("/var/lib/jenkins/workspace/prueba1/backend") {
                     sh './gradlew test'
