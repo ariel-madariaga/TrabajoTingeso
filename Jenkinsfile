@@ -57,29 +57,37 @@ pipeline {
         }*/
 	stage('Levantar backend'){
              steps{
-                dir("/var/lib/jenkins/workspace/prueba1/backend"){			
-                    sh './gradlew build'
-		            sh 'java -jar ./build/libs/backend-0.0.1-SNAPSHOT.jar'
-        	    }
-               dir("/var/lib/jenkins/workspace/prueba1/front-end"){
-		            //sh 'id'
-                    sh 'npm starts'
-                    //sh 'chmod -R a+X /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
-                    //sh 'sudo npm install'
-                    //sh 'sudo npm run build'
-                    //sh '68ab1252f4f642e0bfce7afdd3bed311'
-                    //sh 'chmod +x /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
-                    //sh 'chmod -R a+x /var/lib/jenkins/workspace/prueba1/front-end'
-                    //sh 'forever start index.js'
-		            //sh 'sudo rm -rf node_modules'
-                    //sh 'sudo npm install'
-		            //sh 'sudo npm start'
-                    //sh 'npm run build'
-                    //sh "rm -rf node_modules || true" // removing node_modules if existing.
-                    //sh 'npm run build'
-                    //sh 'nohup npm start &'
-                    //sh 'npm test'
-                }
+                 parallel(
+                    a: {
+                        dir("/var/lib/jenkins/workspace/prueba1/backend"){			
+                            sh './gradlew build'
+                            sh 'java -jar ./build/libs/backend-0.0.1-SNAPSHOT.jar'
+        	            }
+                    },
+                    b: {
+                         dir("/var/lib/jenkins/workspace/prueba1/front-end"){
+                            //sh 'id'
+                            sh 'npm starts'
+                            //sh 'chmod -R a+X /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
+                            //sh 'sudo npm install'
+                            //sh 'sudo npm run build'
+                            //sh '68ab1252f4f642e0bfce7afdd3bed311'
+                            //sh 'chmod +x /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
+                            //sh 'chmod -R a+x /var/lib/jenkins/workspace/prueba1/front-end'
+                            //sh 'forever start index.js'
+                            //sh 'sudo rm -rf node_modules'
+                            //sh 'sudo npm install'
+                            //sh 'sudo npm start'
+                            //sh 'npm run build'
+                            //sh "rm -rf node_modules || true" // removing node_modules if existing.
+                            //sh 'npm run build'
+                            //sh 'nohup npm start &'
+                            //sh 'npm test'
+                        }
+                    }
+                )
+                
+              
         	}
             
              
