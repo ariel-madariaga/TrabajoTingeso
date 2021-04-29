@@ -61,9 +61,7 @@ pipeline {
                    sh './gradlew build'
 		   sh 'java -jar ./build/libs/backend-0.0.1-SNAPSHOT.jar'
         	}
-        	}
-            steps{
-                dir("/var/lib/jenkins/workspace/prueba1/front-end"){
+               dir("/var/lib/jenkins/workspace/prueba1/front-end"){
 		            //sh 'id'
                     
                     //sh 'chmod -R a+X /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
@@ -82,7 +80,10 @@ pipeline {
                     //sh 'nohup npm start &'
                     //sh 'npm test'
                 }
-            }
+        	}
+            
+             
+            
         }
         stage('Fin'){
                 steps{
