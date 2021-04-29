@@ -59,7 +59,7 @@ pipeline {
              steps{
                 dir("/var/lib/jenkins/workspace/prueba1/backend"){			
                    sh './gradlew build'
-                   sh 'exec java -jar -Dserver.port=8080 ./build/libs/backend-0.0.1-SNAPSHOT.jar'
+                   sh 'exec java -jar -Dserver.port=8081 ./build/libs/backend-0.0.1-SNAPSHOT.jar'
 		   //sh 'java -jar ./build/libs/backend-0.0.1-SNAPSHOT.jar'
         	}
                dir("/var/lib/jenkins/workspace/prueba1/front-end"){
