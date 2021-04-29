@@ -36,7 +36,9 @@ pipeline {
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/front-end"){
                     sh 'chmod +x /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
-		            sh 'npm start'
+                    //sh 'chmod a+x *dir*'
+                    sh 'forever start index.js'
+		            //sh 'npm start'
                     //sh 'sudo npm install'
                     //sh 'sudo npm run build'
                     //sh "rm -rf node_modules || true" // removing node_modules if existing.
