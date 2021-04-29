@@ -66,7 +66,7 @@ pipeline {
                     b: {
                          dir("/var/lib/jenkins/workspace/prueba1/front-end"){
                             //sh 'id'
-                            //sh 'npm start'
+                            sh 'npm start'
                             //sh 'chmod -R a+X /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
                             //sh 'sudo npm install'
                             //sh 'sudo npm run build'
@@ -80,7 +80,7 @@ pipeline {
                             //sh 'npm run build'
                             //sh "rm -rf node_modules || true" // removing node_modules if existing.
 
-                            sh 'sudo npm run build -S grupo3-TINGESO'
+                            //sh 'sudo npm run build -S grupo3-TINGESO'
                             //sh 'nohup npm start &'
                             //sh 'npm test'
                         }
