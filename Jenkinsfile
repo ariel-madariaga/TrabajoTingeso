@@ -39,8 +39,8 @@ pipeline {
                     //sh 'chmod -R a+x node_modules/.cache/.eslintcache'
                     //sh 'forever start index.js'
 		            //sh 'npm start'
-                    //sh 'sudo npm install'
-                    sh 'sudo npm run build'
+                    sh 'npm install'
+                    sh 'npm run build'
                     //sh "rm -rf node_modules || true" // removing node_modules if existing.
                     //sh 'npm run build'
                     //sh 'nohup npm start &'
