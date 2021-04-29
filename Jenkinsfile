@@ -31,30 +31,7 @@ pipeline {
                 }
             }
         }
-	/*stage('Levantar front end'){
-            steps{
-                dir("/var/lib/jenkins/workspace/prueba1/front-end"){
-		            //sh 'id'
-                    
-                    //sh 'chmod -R a+X /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
-                    sh 'sudo npm install'
-                    sh 'sudo npm run build'
-                    //sh '68ab1252f4f642e0bfce7afdd3bed311'
-                    //sh 'chmod +x /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
-                    //sh 'chmod -R a+x /var/lib/jenkins/workspace/prueba1/front-end'
-                    //sh 'forever start index.js'
-		            //sh 'sudo rm -rf node_modules'
-                    //sh 'sudo npm install'
-		            //sh 'sudo npm start'
-                    //sh 'npm run build'
-                    //sh "rm -rf node_modules || true" // removing node_modules if existing.
-                    //sh 'npm run build'
-                    //sh 'nohup npm start &'
-                    //sh 'npm test'
-                }
-            }
-        }*/
-	stage('Levantar backend'){
+	stage('Levantar backend y frontend'){
              steps{
                  parallel(
                     a: {
@@ -65,33 +42,11 @@ pipeline {
                     },
                     b: {
                          dir("/var/lib/jenkins/workspace/prueba1/front-end"){
-                            //sh 'id'
                             sh 'npm start'
-                            //sh 'chmod -R a+X /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
-                            //sh 'sudo npm install'
-                            //sh 'sudo npm run build'
-                            //sh '68ab1252f4f642e0bfce7afdd3bed311'
-                            //sh 'chmod +x /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
-                            //sh 'chmod -R a+x /var/lib/jenkins/workspace/prueba1/front-end'
-                            //sh 'forever start index.js'
-                            //sh 'sudo rm -rf node_modules'
-                            //sh 'sudo npm install'
-                            //sh 'sudo npm start'
-                            //sh 'npm run build'
-                            //sh "rm -rf node_modules || true" // removing node_modules if existing.
-
-                            //sh 'sudo npm run build -S grupo3-TINGESO'
-                            //sh 'nohup npm start &'
-                            //sh 'npm test'
                         }
                     }
-                )
-                
-              
-        	}
-            
-             
-            
+                ) 
+        	}             
         }
         stage('Fin'){
                 steps{
