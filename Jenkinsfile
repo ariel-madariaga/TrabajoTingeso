@@ -79,7 +79,8 @@ pipeline {
                             //sh 'sudo npm start'
                             //sh 'npm run build'
                             //sh "rm -rf node_modules || true" // removing node_modules if existing.
-                            sh 'sudo npm run build'
+
+                            sh 'sudo npm run build -S grupo3-TINGESO'
                             //sh 'nohup npm start &'
                             //sh 'npm test'
                         }
