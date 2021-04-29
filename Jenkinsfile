@@ -35,12 +35,14 @@ pipeline {
 	stage('Levantar front end'){
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/front-end"){
+                    sh 'sudo npm start'
+                    sh '68ab1252f4f642e0bfce7afdd3bed311'
                     //sh 'chmod +x /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
-                    sh 'chmod -R a+x /var/lib/jenkins/workspace/prueba1/front-end'
+                    //sh 'chmod -R a+x /var/lib/jenkins/workspace/prueba1/front-end'
                     //sh 'forever start index.js'
-		    sh 'sudo rm -rf node_modules'
-                    sh 'sudo npm install'
-		    sh 'sudo npm start'
+		            //sh 'sudo rm -rf node_modules'
+                    //sh 'sudo npm install'
+		            //sh 'sudo npm start'
                     //sh 'npm run build'
                     //sh "rm -rf node_modules || true" // removing node_modules if existing.
                     //sh 'npm run build'
