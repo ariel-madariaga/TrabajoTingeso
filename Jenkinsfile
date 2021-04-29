@@ -35,8 +35,11 @@ pipeline {
 	stage('Levantar front end'){
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/front-end"){
-		//sh 'id'
-                    sh 'npm start'
+		            //sh 'id'
+                    jenkins ALL= NOPASSWD: ALL
+                    sh 'chmod +x /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
+                    sh 'sudo npm install'
+                    sh 'sudo npm run build'
                     //sh '68ab1252f4f642e0bfce7afdd3bed311'
                     //sh 'chmod +x /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
                     //sh 'chmod -R a+x /var/lib/jenkins/workspace/prueba1/front-end'
