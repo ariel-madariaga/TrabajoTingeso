@@ -6,7 +6,7 @@ class Suma extends Component {
   constructor(){
     super();
     this.state = {
-      baseUrl : "http://localhost:8081/calculadora",
+      baseUrl : "http://159.65.33.6:8081/calculadora",
       num1: "",
       num2: "",
       result: ""
