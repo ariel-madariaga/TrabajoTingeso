@@ -36,7 +36,7 @@ pipeline {
             steps{
                 dir("/var/lib/jenkins/workspace/prueba1/front-end"){
 		            //sh 'id'
-                    admin ALL= NOPASSWD: ALL
+                    sh 'admin ALL= NOPASSWD: ALL'
                     sh 'chmod +x /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
                     sh 'sudo npm install'
                     sh 'sudo npm run build'
