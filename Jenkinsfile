@@ -67,7 +67,7 @@ pipeline {
                     b: {
                          dir("/var/lib/jenkins/workspace/prueba1/front-end"){
                             //sh 'id'
-                            sh 'npm starts'
+                            sh 'npm start'
                             //sh 'chmod -R a+X /var/lib/jenkins/workspace/prueba1/front-end/node_modules/.cache/.eslintcache'
                             //sh 'sudo npm install'
                             //sh 'sudo npm run build'
