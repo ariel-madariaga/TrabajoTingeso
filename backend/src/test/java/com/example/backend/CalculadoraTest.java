@@ -1,6 +1,6 @@
 package com.example.backend;
 
-import Calculadora from './main/java/com/example/backend/Models/Calculadora.java';
+import com.example.backend.Models.Calculadora;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
