@@ -27,11 +27,7 @@ pipeline {
 				    }
                 }
                 dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-results/test"){
-                    post{
-                        always{
-                            junit 'TEST-*.xml'
-                        }
-                    }
+                   junit 'TEST-*.xml'
                 }
             }
         }
