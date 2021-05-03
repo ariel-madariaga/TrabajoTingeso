@@ -26,7 +26,6 @@ pipeline {
                     sh './gradlew test'
 				    }
                 }
-                sh './mvnw test'
                 dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-results/test"){
                     post{
                         always{
