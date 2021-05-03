@@ -17,19 +17,19 @@ public class CalculadoraTest{
     Calculadora calculo = new Calculadora();
 
     @Test
-    public int testSuma1(){
+    public void testSuma1(){
         Assertions.assertEquals(resultado1, calculo.Sumar(num1,num2), "Se espera un 9");
     }
     @Test
-    public int testSuma2(){
+    public void testSuma2(){
         Assertions.assertEquals(resultado2, calculo.Sumar(num3,num4), "Se espera un 5");
     }
     @Test
-    public int testResta1(){
+    public void testResta1(){
         Assertions.assertEquals(resultado3, calculo.Restar(num2,num1), "Se espera un 1");
     }
     @Test
-    public int testResta2(){
+    public void testResta2(){
         Assertions.assertEquals(resultado3, calculo.Restar(num4,num3), "Se espera un 1");
     }
 }
