@@ -26,10 +26,10 @@ public class CalculadoraTest{
     }
     @Test
     public void testResta1(){
-        Assertions.assertEquals(resultado3, calculo.Restar(num2,num1), "Se espera un 1");
+        Assertions.assertEquals(resultado3, calculo.Restar(num1,num2), "Se espera un 1");
     }
     @Test
     public void testResta2(){
-        Assertions.assertEquals(resultado3, calculo.Restar(num4,num3), "Se espera un 1");
+        Assertions.assertEquals(resultado3, calculo.Restar(num3,num4), "Se espera un 1");
     }
 }
