@@ -27,26 +27,32 @@ pipeline {
 				    }
                 }
                 dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-results/test"){
-                    junit '*.xml'
+                    sh './mvnw test'
+                    post{
+                        always{
+                            junit 'TEST-*.xml'
+                        }
+                    }
                 }
             }
         }
-	stage('Levantar backend y frontend'){
-             steps{
-                 parallel(
-                    a: {
-                        dir("/var/lib/jenkins/workspace/prueba1/backend"){			
-                            sh './gradlew build'
-                            sh 'java -jar ./build/libs/backend-0.0.1-SNAPSHOT.jar'
-        	            }
-                    },
-                    b: {
-                         dir("/var/lib/jenkins/workspace/prueba1/front-end"){
-                            sh 'npm start'
+        
+        stage('Levantar backend y frontend'){
+                steps{
+                    parallel(
+                        a: {
+                            dir("/var/lib/jenkins/workspace/prueba1/backend"){			
+                                sh './gradlew build'
+                                sh 'java -jar ./build/libs/backend-0.0.1-SNAPSHOT.jar'
+                            }
+                        },
+                        b: {
+                            dir("/var/lib/jenkins/workspace/prueba1/front-end"){
+                                sh 'npm start'
+                            }
                         }
-                    }
-                ) 
-        	}             
+                    ) 
+                }             
         }
         stage('Fin'){
                 steps{
