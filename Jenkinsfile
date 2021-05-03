@@ -26,8 +26,8 @@ pipeline {
                     sh './gradlew test'
 				    }
                 }
+                sh './mvnw test'
                 dir("/var/lib/jenkins/workspace/prueba1/backend/build/test-results/test"){
-                    sh './mvnw test'
                     post{
                         always{
                             junit 'TEST-*.xml'
@@ -36,7 +36,7 @@ pipeline {
                 }
             }
         }
-        
+
         stage('Levantar backend y frontend'){
                 steps{
                     parallel(
