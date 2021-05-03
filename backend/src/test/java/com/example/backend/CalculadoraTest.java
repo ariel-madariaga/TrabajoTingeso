@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 public class CalculadoraTest{
-    Int num1 = 5;
-    Int num2 = 4;
-    Int num3 = 3;
-    Int num4 = 2;
-    Int resultado1 = 9;
-    Int resultado2 = 5;
-    Int resultado3 = 1;
+    int num1 = 5;
+    int num2 = 4;
+    int num3 = 3;
+    int num4 = 2;
+    int resultado1 = 9;
+    int resultado2 = 5;
+    int resultado3 = 1;
     
     Calculadora calculo = new Calculadora();
 
