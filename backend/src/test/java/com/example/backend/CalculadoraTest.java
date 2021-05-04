@@ -18,18 +18,18 @@ public class CalculadoraTest{
 
     @Test
     public void testSuma1(){
-        Assertions.assertEquals(resultado1, calculo.Sumar(num1,num2), "Se espera un 9");
+        Assertions.assertEquals(resultado2, calculo.Sumar(num1,num2), "Se espera un 9");
     }
     @Test
     public void testSuma2(){
-        Assertions.assertEquals(resultado2, calculo.Sumar(num3,num4), "Se espera un 5");
+        Assertions.assertEquals(resultado3, calculo.Sumar(num3,num4), "Se espera un 5");
     }
     @Test
     public void testResta1(){
-        Assertions.assertEquals(resultado3, calculo.Restar(num1,num2), "Se espera un 1");
+        Assertions.assertEquals(resultado1, calculo.Restar(num1,num2), "Se espera un 1");
     }
     @Test
     public void testResta2(){
-        Assertions.assertEquals(resultado3, calculo.Restar(num3,num4), "Se espera un 1");
+        Assertions.assertEquals(resultado1, calculo.Restar(num3,num4), "Se espera un 1");
     }
 }
