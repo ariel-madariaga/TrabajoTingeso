@@ -10,7 +10,7 @@ pipeline {
         stage("SonarQube analysis") {
             //agent any
             steps {
-                dir("/var/lib/jenkins/workspace/prueba1/backend"){
+                dir("/var/lib/jenkins/workspace/prueba1"){
                     withSonarQubeEnv('sonarqube') {
                         sh 'chmod +x ./gradlew'
                         sh './gradlew sonarqube'
