@@ -62,10 +62,10 @@ class Suma extends Component {
       <div class="container ">
 
           <div class="row ">
-            <Input text= "Primer número" id = "input1" onInputChange={this.setNum1}></Input>
+            <Input text= "Primer número (n1)" id = "input1" onInputChange={this.setNum1}></Input>
           </div>
           <div class="row ">
-            <Input text= "Segundo número"  id = "input2" onInputChange={this.setNum2}></Input>
+            <Input text= "Segundo número (n2)"  id = "input2" onInputChange={this.setNum2}></Input>
           </div>
           <div class="row ">
 
